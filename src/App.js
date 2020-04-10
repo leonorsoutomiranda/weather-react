@@ -1,15 +1,20 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { city } from "./Search.js";
+import { temperature } from "./Search.js";
+import { humidity } from "./Search.js";
+import { wind } from "./Search.js";
+import { description } from "./Search.js";
 
 export default function App() {
   let AppData = {
-    CurrentLocation: "Lisboa",
+    CurrentLocation: { city },
     CurrentDate: "Sunday, March-29, 20:47",
-    CurrentTemperature: "14 º C",
-    Humidity: "54",
-    Wind: "3.6",
-    Description: "Scattered Clouds",
+    CurrentTemperature: { temperature },
+    Humidity: { humidity },
+    Wind: { wind },
+    Description: { description },
   };
   return (
     <div className="App">
@@ -77,7 +82,7 @@ export default function App() {
         <p className="coder">
           <a
             className="coder"
-            href="https://github.com/leonorsoutomiranda/theweatherproject"
+            href="https://github.com/leonorsoutomiranda/weather-react"
           >
             Open-source code
           </a>
