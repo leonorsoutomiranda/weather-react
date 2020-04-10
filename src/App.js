@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { city } from "./Search.js";
-import { temperature } from "./Search.js";
-import { humidity } from "./Search.js";
-import { wind } from "./Search.js";
-import { description } from "./Search.js";
+import city from "./Search.js";
+import temperature from "./Search.js";
+import humidity from "./Search.js";
+import wind from "./Search.js";
+import description from "./Search.js";
 
 export default function App() {
   let AppData = {
