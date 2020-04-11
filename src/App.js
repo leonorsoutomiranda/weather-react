@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "@fortawesome/fontawesome-free/css/all.css";
 import WeatherData from "./WeatherData.js";
 import city from "./Search.js";
 import temperature from "./Search.js";
@@ -26,6 +27,7 @@ export default function App() {
               type="text"
               placeholder=" Search Location"
               id="location-input"
+              autoFocus="on"
             />
             <a className="search-btn" href="/">
               <i className="fas fa-search-location" />
