@@ -3,6 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import WeatherData from "./WeatherData.js";
+import CurrentDate from "./CurrentDate.js";
 import city from "./Search.js";
 import temperature from "./Search.js";
 import humidity from "./Search.js";
@@ -10,14 +11,6 @@ import wind from "./Search.js";
 import description from "./Search.js";
 
 export default function App() {
-  let AppData = {
-    CurrentLocation: { city },
-    CurrentDate: "Sunday, March-29, 20:47",
-    CurrentTemperature: { temperature },
-    Humidity: { humidity },
-    Wind: { wind },
-    Description: { description },
-  };
   return (
     <div className="App">
       <div className="card">
@@ -28,7 +21,8 @@ export default function App() {
               placeholder=" Search Location"
               id="location-input"
               autoFocus="on"
-            />
+            />{" "}
+            <span> </span>
             <a className="search-btn" href="/">
               <i className="fas fa-search-location" />
             </a>

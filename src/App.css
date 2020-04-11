@@ -16,7 +16,13 @@ div.currentlocation {
   background-color: #eeeff1;
   color: #5b6375;
   text-align: right;
-  font-weight: bolder;
+  font-weight: bold;
+}
+div.currentdate {
+  background-color: #eeeff1;
+  color: #5b6375;
+  text-align: right;
+
   text-transform: capitalize;
 }
 p {

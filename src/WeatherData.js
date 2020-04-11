@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
+import CurrentDate from "./CurrentDate.js";
 
 export default function WeatherData(props) {
   let [ready, setReady] = useState(false);
@@ -12,6 +13,7 @@ export default function WeatherData(props) {
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       city: response.data.name,
+      date: new Date(response.data.dt * 1000),
     });
 
     setReady(true);
@@ -22,7 +24,10 @@ export default function WeatherData(props) {
       <div className="card card-two">
         <div className="card-body card-body-two">
           <div className="currentlocation" id="current-location">
-            {WeatherInfo.city} | Last updated: 10-04-2020
+            {WeatherInfo.city}
+          </div>
+          <div className="currentdate">
+            <CurrentDate date={WeatherInfo.date} />
           </div>
           <div className="unit">
             Unit:{" "}
@@ -37,10 +42,11 @@ export default function WeatherData(props) {
           <container>
             <div className="row">
               <div className="col-sm">
-                <p>Now: {Math.round(WeatherInfo.temperature)} ºC</p>
+                <p>Now: </p>
               </div>
               <div className="col-sm">
                 <div className="currentdegrees" id="temperature" />
+                {Math.round(WeatherInfo.temperature)} ºC
               </div>
               <div className="col-sm"></div>
               <div className="col-sm">
