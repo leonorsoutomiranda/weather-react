@@ -3,6 +3,8 @@ import axios from "axios";
 import "./App.css";
 import CurrentDate from "./CurrentDate.js";
 import WeatherIcon from "./WeatherIcon.js";
+import Unit from "./Unit.js";
+import UnitSelect from "./UnitSelect.js";
 
 export default function WeatherData(props) {
   let [ready, setReady] = useState(false);
@@ -58,24 +60,15 @@ export default function WeatherData(props) {
             <div className="currentdate">
               <CurrentDate date={WeatherInfo.date} />
             </div>
-            <div className="unit">
-              Unit:{" "}
-              <a href="/" id="celsius-link">
-                Celsius
-              </a>{" "}
-              |{" "}
-              <a href="/" id="f-link">
-                Fahrenheit
-              </a>
-            </div>
+            <UnitSelect />
+
             <container>
               <div className="row">
                 <div className="col-sm">
                   <p>Now: </p>
                 </div>
                 <div className="col-sm">
-                  <div className="currentdegrees" id="temperature" />
-                  {Math.round(WeatherInfo.temperature)} ºC
+                  <Unit celsius={WeatherInfo.temperature} />
                 </div>
                 <div className="col-sm">
                   <WeatherIcon id={WeatherInfo.icon} />
