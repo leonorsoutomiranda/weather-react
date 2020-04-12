@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
 import CurrentDate from "./CurrentDate.js";
+import WeatherIcon from "./WeatherIcon.js";
 
 export default function WeatherData(props) {
   let [ready, setReady] = useState(false);
@@ -27,6 +28,7 @@ export default function WeatherData(props) {
       humidity: response.data.main.humidity,
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
+      icon: response.data.weather[0].icon,
     });
 
     setReady(true);
@@ -75,7 +77,9 @@ export default function WeatherData(props) {
                   <div className="currentdegrees" id="temperature" />
                   {Math.round(WeatherInfo.temperature)} ºC
                 </div>
-                <div className="col-sm"></div>
+                <div className="col-sm">
+                  <WeatherIcon id={WeatherInfo.icon} />
+                </div>
                 <div className="col-sm">
                   <div className="currentwindrain">
                     | Humidity <span id="humidity">{WeatherInfo.humidity}</span>
