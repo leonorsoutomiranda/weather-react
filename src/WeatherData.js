@@ -5,7 +5,20 @@ import CurrentDate from "./CurrentDate.js";
 
 export default function WeatherData(props) {
   let [ready, setReady] = useState(false);
+  let [city, setCity] = useState(props.defaultcity);
   let [WeatherInfo, setWeatherInfo] = useState({});
+
+  function HandleSearch(event) {
+    event.preventDefault();
+    Search();
+  }
+  function Search() {
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
+    axios.get(url).then(updateWeather);
+  }
+  function updateCity(event) {
+    setCity(event.target.value);
+  }
   function updateWeather(response) {
     setWeatherInfo({
       temperature: response.data.main.temp,
@@ -21,62 +34,77 @@ export default function WeatherData(props) {
 
   if (ready) {
     return (
-      <div className="card card-two">
-        <div className="card-body card-body-two">
-          <div className="currentlocation" id="current-location">
-            {WeatherInfo.city}
-          </div>
-          <div className="currentdate">
-            <CurrentDate date={WeatherInfo.date} />
-          </div>
-          <div className="unit">
-            Unit:{" "}
-            <a href="/" id="celsius-link">
-              Celsius
-            </a>{" "}
-            |{" "}
-            <a href="/" id="f-link">
-              Fahrenheit
-            </a>
-          </div>
-          <container>
-            <div className="row">
-              <div className="col-sm">
-                <p>Now: </p>
-              </div>
-              <div className="col-sm">
-                <div className="currentdegrees" id="temperature" />
-                {Math.round(WeatherInfo.temperature)} ºC
-              </div>
-              <div className="col-sm"></div>
-              <div className="col-sm">
-                <div className="currentwindrain">
-                  | Humidity <span id="humidity">{WeatherInfo.humidity}</span>%
-                  <br />| Wind <span id="wind">{WeatherInfo.wind}</span>km/h
-                  <br />|
-                  <span id="description-weather" className="text-capitalize">
-                    {WeatherInfo.description}
-                  </span>
-                </div>
-              </div>
-              <div className="col-sm" />
-              <div className="col-sm" />
-              <div className="col-sm" />
-              <div className="col-sm" />
+      <div>
+        <form onSubmit={HandleSearch} id="location-form">
+          <input
+            type="text"
+            placeholder=" Search Location"
+            id="location-input"
+            autoFocus="on"
+            onChange={updateCity}
+          />{" "}
+          <span> </span>
+          <a className="search-btn" href="/" onClick={HandleSearch}>
+            <i className="fas fa-search-location" />
+          </a>
+        </form>
+        <div className="card card-two">
+          <div className="card-body card-body-two">
+            <div className="currentlocation" id="current-location">
+              {WeatherInfo.city}
             </div>
-            <p id="next-hours" />
+            <div className="currentdate">
+              <CurrentDate date={WeatherInfo.date} />
+            </div>
+            <div className="unit">
+              Unit:{" "}
+              <a href="/" id="celsius-link">
+                Celsius
+              </a>{" "}
+              |{" "}
+              <a href="/" id="f-link">
+                Fahrenheit
+              </a>
+            </div>
+            <container>
+              <div className="row">
+                <div className="col-sm">
+                  <p>Now: </p>
+                </div>
+                <div className="col-sm">
+                  <div className="currentdegrees" id="temperature" />
+                  {Math.round(WeatherInfo.temperature)} ºC
+                </div>
+                <div className="col-sm"></div>
+                <div className="col-sm">
+                  <div className="currentwindrain">
+                    | Humidity <span id="humidity">{WeatherInfo.humidity}</span>
+                    %
+                    <br />| Wind <span id="wind">{WeatherInfo.wind}</span>km/h
+                    <br />|
+                    <span id="description-weather" className="text-capitalize">
+                      {WeatherInfo.description}
+                    </span>
+                  </div>
+                </div>
+                <div className="col-sm" />
+                <div className="col-sm" />
+                <div className="col-sm" />
+                <div className="col-sm" />
+              </div>
+              <p id="next-hours" />
 
-            <div className="row" id="forecast" />
-          </container>
+              <div className="row" id="forecast" />
+            </container>
+          </div>
+          <div>
+            <button id="go-home">Back to current location</button>
+          </div>{" "}
         </div>
-        <div>
-          <button id="go-home">Back to current location</button>
-        </div>{" "}
       </div>
     );
   } else {
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultcity}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
-    axios.get(url).then(updateWeather);
+    Search();
     return "Loading";
   }
 }
