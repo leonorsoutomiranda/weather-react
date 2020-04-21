@@ -68,7 +68,10 @@ export default function WeatherData(props) {
                   <p>Now: </p>
                 </div>
                 <div className="col-sm">
-                  <Unit celsius={WeatherInfo.temperature} />
+                  <Unit
+                    degreesCelsius={WeatherInfo.temperature}
+                    unidade={"celsius"}
+                  />
                 </div>
                 <div className="col-sm">
                   <WeatherIcon id={WeatherInfo.icon} />

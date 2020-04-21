@@ -1,47 +1,40 @@
 import React, { useState } from "react";
-import Unit from "./Unit.js";
 
 export default function UnitSelect() {
-  function handleCelsiusClick(event) {
+  const [unidade, setUnidade] = useState("celsius");
+  function showFahrenheit(event) {
     event.preventDefault();
-    return (
-      <div>
-        <Unit met={"celsius"} />;
-      </div>
-    );
-    return (
-      <div className="unit">
-        Unit: <span>Celsius</span> |{" "}
-        <a href="/" id="f-link" onClick={handleFahrClick}>
-          Fahrenheit
-        </a>
-      </div>
-    );
-  }
-  function handleFahrClick(event) {
-    event.preventDefault();
-    return (
-      <div>
-        <Unit met={"fahr"} />;
-      </div>
-    );
-    return (
-      <div className="unit">
-        Unit:{" "}
-        <a href="/" id="celsius-link" onClick={handleCelsiusClick}>
-          Celsius
-        </a>{" "}
-        | <span>Fahrenheit</span>
-      </div>
-    );
+    setUnidade("fahrenheit");
   }
 
-  return (
-    <div className="unit">
-      Unit: <span>Celsius</span> |{" "}
-      <a href="/" id="f-link" onClick={handleFahrClick}>
-        Fahrenheit
-      </a>
-    </div>
-  );
+  function showCelsius(event) {
+    event.preventDefault();
+    setUnidade("celsius");
+  }
+
+  if (unidade === "fahrenheit") {
+    return (
+      <div>
+        {" "}
+        <span className="unit">
+          Unit:
+          <a href="/" onClick={showCelsius}>
+            °C
+          </a>{" "}
+          | °F
+        </span>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <span className="unit">
+          Unit: °C |{" "}
+          <a href="/" onClick={showFahrenheit}>
+            °F
+          </a>
+        </span>
+      </div>
+    );
+  }
 }

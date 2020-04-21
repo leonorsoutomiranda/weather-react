@@ -31,6 +31,6 @@ export default function WeatherIcon(props) {
     "13n": <WiSnowflakeCold />,
     "50n": <WiFog />,
   };
-  console.log(props.id);
+
   return <div className="icon">{iconMapping[props.id]}</div>;
 }
