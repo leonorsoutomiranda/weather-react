@@ -1,5 +1,5 @@
 import React from "react";
-import unidade from "./UnitSelect.js";
+import { unidade } from "./UnitSelect.js";
 
 export default function Unit(props) {
   let tempCelsius = props.degreesCelsius;
