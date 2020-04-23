@@ -60,37 +60,37 @@ export default function WeatherData(props) {
             <div className="currentdate">
               <CurrentDate date={WeatherInfo.date} />
             </div>
-            <UnitSelect />
 
             <container>
-              <div className="row">
-                <div className="col-sm">
-                  <p>Now: </p>
-                </div>
-                <div className="col-sm">
-                  <Unit
+              <div>
+                <div className="row">
+                  <UnitSelect
+                    unitSelected={"celsius"}
                     degreesCelsius={WeatherInfo.temperature}
-                    unidade={"celsius"}
                   />
-                </div>
-                <div className="col-sm">
-                  <WeatherIcon id={WeatherInfo.icon} />
-                </div>
-                <div className="col-sm">
-                  <div className="currentwindrain">
-                    | Humidity <span id="humidity">{WeatherInfo.humidity}</span>
-                    %
-                    <br />| Wind <span id="wind">{WeatherInfo.wind}</span>km/h
-                    <br />|
-                    <span id="description-weather" className="text-capitalize">
-                      {WeatherInfo.description}
-                    </span>
+
+                  <div className="col-sm">
+                    <WeatherIcon id={WeatherInfo.icon} />
                   </div>
+                  <div className="col-sm">
+                    <div className="currentwindrain">
+                      | Humidity{" "}
+                      <span id="humidity">{WeatherInfo.humidity}</span>
+                      %
+                      <br />| Wind <span id="wind">{WeatherInfo.wind}</span>km/h
+                      <br />|
+                      <span
+                        id="description-weather"
+                        className="text-capitalize"
+                      >
+                        {" "}
+                        {WeatherInfo.description}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="col-sm" />
+                  <div className="col-sm" />
                 </div>
-                <div className="col-sm" />
-                <div className="col-sm" />
-                <div className="col-sm" />
-                <div className="col-sm" />
               </div>
               <p id="next-hours" />
 

@@ -1,39 +1,61 @@
 import React, { useState } from "react";
+import Unit from "./Unit.js";
 
-export default function UnitSelect() {
-  const [unidade, setUnidade] = useState("celsius");
+export default function UnitSelect(props) {
+  let degreesCelsius = props.degreesCelsius;
+  const [metrics, setMetrics] = useState(props.unitSelected);
   function showFahrenheit(event) {
     event.preventDefault();
-    setUnidade("fahrenheit");
+    setMetrics("fahrenheit");
   }
 
   function showCelsius(event) {
     event.preventDefault();
-    setUnidade("celsius");
+    setMetrics("celsius");
   }
 
-  if (unidade === "fahrenheit") {
+  if (metrics === "fahrenheit") {
     return (
       <div>
-        {" "}
-        <span className="unit">
-          Unit:
-          <a href="/" onClick={showCelsius}>
-            °C
-          </a>{" "}
-          | °F
-        </span>
+        <div>
+          {" "}
+          <span className="unit">
+            Unit:
+            <a href="/" onClick={showCelsius}>
+              °C
+            </a>{" "}
+            | °F
+          </span>
+        </div>
+        <div className="row">
+          <div className="col-sm">
+            <p>Now: </p>
+          </div>
+          <div className="col-sm">
+            <Unit unidade="fahrenheit" degreesCelsius={degreesCelsius} />
+          </div>
+        </div>
       </div>
     );
   } else {
     return (
       <div>
-        <span className="unit">
-          Unit: °C |{" "}
-          <a href="/" onClick={showFahrenheit}>
-            °F
-          </a>
-        </span>
+        <div>
+          <span className="unit">
+            Unit: °C |{" "}
+            <a href="/" onClick={showFahrenheit}>
+              °F
+            </a>
+          </span>
+        </div>
+        <div className="row">
+          <div className="col-sm">
+            <p>Now: </p>
+          </div>
+          <div className="col-sm">
+            <Unit unidade="celsius" degreesCelsius={degreesCelsius} />
+          </div>
+        </div>
       </div>
     );
   }

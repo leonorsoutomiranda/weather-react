@@ -1,10 +1,9 @@
 import React from "react";
-import { unidade } from "./UnitSelect.js";
 
 export default function Unit(props) {
   let tempCelsius = props.degreesCelsius;
   let tempFahr = (props.degreesCelsius * 9) / 5 + 32;
-  let UnitFinal = unidade;
+  let UnitFinal = props.unidade;
   if (UnitFinal === "fahrenheit") {
     console.log("changed");
     return (

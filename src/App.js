@@ -18,7 +18,7 @@ export default function App() {
           href="https://github.com/leonorsoutomiranda/weather-react"
         >
           Open-source code
-        </a>
+        </a>{" "}
         by Leonor Miranda
       </p>
     </div>
