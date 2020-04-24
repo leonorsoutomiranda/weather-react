@@ -18,7 +18,7 @@ export default function UnitSelect(props) {
   if (metrics === "fahrenheit") {
     return (
       <div>
-        <div>
+        <p>
           {" "}
           <span className="unit">
             Unit:
@@ -27,7 +27,7 @@ export default function UnitSelect(props) {
             </a>{" "}
             | °F
           </span>
-        </div>
+        </p>
         <div className="row">
           <div className="col-sm">
             <p>Now: </p>
@@ -41,14 +41,14 @@ export default function UnitSelect(props) {
   } else {
     return (
       <div>
-        <div>
+        <p>
           <span className="unit">
             Unit: °C |{" "}
             <a href="/" onClick={showFahrenheit}>
               °F
             </a>
           </span>
-        </div>
+        </p>
         <div className="row">
           <div className="col-sm">
             <p>Now: </p>

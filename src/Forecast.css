@@ -2,4 +2,14 @@ p {
   color: #5a6275;
   text-align: left;
   padding: 25px 0px;
+  display: block;
+}
+
+.col-sm {
+  text-align: center;
+}
+
+.max-min {
+  color: #7cd3cd;
+  font-style: italic;
 }

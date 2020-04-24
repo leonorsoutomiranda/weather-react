@@ -6,7 +6,6 @@ export default function Unit(props) {
   let tempFahr = (props.degreesCelsius * 9) / 5 + 32;
   let UnitFinal = props.unidade;
   if (UnitFinal === "fahrenheit") {
-    console.log("changed");
     return (
       <div className="currentdegrees">
         {Math.round(tempFahr)}
@@ -14,7 +13,6 @@ export default function Unit(props) {
       </div>
     );
   } else {
-    console.log("ok");
     return (
       <div className="currentdegrees">
         {Math.round(tempCelsius)}

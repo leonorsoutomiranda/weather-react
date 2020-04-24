@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./Forecast.css";
 import axios from "axios";
-import WeatherIcon from "./WeatherIcon.js";
+
+import ForecastDisplay from "./ForecastDisplay.js";
 
 export default function Forecast(props) {
   const [ready, setReady] = useState(false);
@@ -11,36 +12,16 @@ export default function Forecast(props) {
     setReady(true);
   }
 
-  if (ready) {
+  if (ready && props.city === forecastdata.city.name) {
     return (
       <div>
         <p> Next hours forecast:</p>
 
         <div className="row">
-          <div className="col-sm">
-            01: 00
-            <WeatherIcon id={forecastdata.list[0].weather[0].icon} />
-            Max:{Math.round(forecastdata.list[0].main.temp)}º C Min:
-            {Math.round(forecastdata.list[0].main.temp)}º C
-          </div>
-          <div className="col-sm">
-            01: 00
-            <WeatherIcon id={forecastdata.list[0].weather[0].icon} />
-            Max:{Math.round(forecastdata.list[0].main.temp)}º C Min:
-            {Math.round(forecastdata.list[0].main.temp)}º C
-          </div>
-          <div className="col-sm">
-            01: 00
-            <WeatherIcon id={forecastdata.list[0].weather[0].icon} />
-            Max:{Math.round(forecastdata.list[0].main.temp)}º C Min:
-            {Math.round(forecastdata.list[0].main.temp)}º C
-          </div>
-          <div className="col-sm">
-            01: 00
-            <WeatherIcon id={forecastdata.list[0].weather[0].icon} />
-            Max:{Math.round(forecastdata.list[0].main.temp)}º C Min:
-            {Math.round(forecastdata.list[0].main.temp)}º C
-          </div>
+          <ForecastDisplay info={forecastdata.list[0]} />
+          <ForecastDisplay info={forecastdata.list[1]} />
+          <ForecastDisplay info={forecastdata.list[2]} />
+          <ForecastDisplay info={forecastdata.list[3]} />
         </div>
       </div>
     );

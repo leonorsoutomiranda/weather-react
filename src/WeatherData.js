@@ -67,10 +67,8 @@ export default function WeatherData(props) {
                   unitSelected={"celsius"}
                   degreesCelsius={WeatherInfo.temperature}
                 />
+                <WeatherIcon id={WeatherInfo.icon} />
 
-                <div className="col-sm">
-                  <WeatherIcon id={WeatherInfo.icon} />
-                </div>
                 <div className="col-sm">
                   <div className="currentwindrain">
                     | Humidity <span id="humidity">{WeatherInfo.humidity}</span>
@@ -86,7 +84,6 @@ export default function WeatherData(props) {
                 <div className="col-sm"></div>
                 <div className="col-sm"></div>
               </div>
-
               <div className="row" id="forecast" />
               <Forecast city={WeatherInfo.city} />
             </div>

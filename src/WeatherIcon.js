@@ -32,5 +32,9 @@ export default function WeatherIcon(props) {
     "50n": <WiFog />,
   };
 
-  return <div className="icon">{iconMapping[props.id]}</div>;
+  return (
+    <div className="col-sm">
+      <div className="icon">{iconMapping[props.id]}</div>
+    </div>
+  );
 }
