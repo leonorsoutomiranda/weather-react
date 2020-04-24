@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 import CurrentDate from "./CurrentDate.js";
 import WeatherIcon from "./WeatherIcon.js";
-import Unit from "./Unit.js";
+import Forecast from "./Forecast.js";
 import UnitSelect from "./UnitSelect.js";
 
 export default function WeatherData(props) {
@@ -61,44 +61,43 @@ export default function WeatherData(props) {
               <CurrentDate date={WeatherInfo.date} />
             </div>
 
-            <container>
-              <div>
-                <div className="row">
-                  <UnitSelect
-                    unitSelected={"celsius"}
-                    degreesCelsius={WeatherInfo.temperature}
-                  />
+            <div>
+              <div className="row">
+                <UnitSelect
+                  unitSelected={"celsius"}
+                  degreesCelsius={WeatherInfo.temperature}
+                />
 
-                  <div className="col-sm">
-                    <WeatherIcon id={WeatherInfo.icon} />
-                  </div>
-                  <div className="col-sm">
-                    <div className="currentwindrain">
-                      | Humidity{" "}
-                      <span id="humidity">{WeatherInfo.humidity}</span>
-                      %
-                      <br />| Wind <span id="wind">{WeatherInfo.wind}</span>km/h
-                      <br />|
-                      <span
-                        id="description-weather"
-                        className="text-capitalize"
-                      >
-                        {" "}
-                        {WeatherInfo.description}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="col-sm" />
-                  <div className="col-sm" />
+                <div className="col-sm">
+                  <WeatherIcon id={WeatherInfo.icon} />
                 </div>
+                <div className="col-sm">
+                  <div className="currentwindrain">
+                    | Humidity <span id="humidity">{WeatherInfo.humidity}</span>
+                    %
+                    <br />| Wind <span id="wind">{WeatherInfo.wind}</span>km/h
+                    <br />|
+                    <span id="description-weather" className="text-capitalize">
+                      {" "}
+                      {WeatherInfo.description}
+                    </span>
+                  </div>
+                </div>
+                <div className="col-sm"></div>
+                <div className="col-sm"></div>
               </div>
-              <p id="next-hours" />
 
               <div className="row" id="forecast" />
-            </container>
+              <Forecast city={WeatherInfo.city} />
+            </div>
           </div>
           <div>
-            <button id="go-home">Back to current location</button>
+            <button id="go-home">
+              {" "}
+              <a className="go-home" href="/">
+                Back to home location
+              </a>
+            </button>
           </div>{" "}
         </div>
       </div>
