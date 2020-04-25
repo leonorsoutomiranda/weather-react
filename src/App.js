@@ -6,21 +6,23 @@ import WeatherData from "./WeatherData.js";
 
 export default function App() {
   return (
-    <div className="App">
-      <div className="card">
-        <div className="card-body">
-          <WeatherData defaultcity="Aveiro" />
+    <div className="container">
+      <div className="App">
+        <div className="card">
+          <div className="card-body">
+            <WeatherData defaultcity="Aveiro" />
+          </div>
         </div>
+        <p className="coder">
+          <a
+            className="coder"
+            href="https://github.com/leonorsoutomiranda/weather-react"
+          >
+            Open-source code
+          </a>{" "}
+          by Leonor Miranda
+        </p>
       </div>
-      <p className="coder">
-        <a
-          className="coder"
-          href="https://github.com/leonorsoutomiranda/weather-react"
-        >
-          Open-source code
-        </a>{" "}
-        by Leonor Miranda
-      </p>
     </div>
   );
 }
