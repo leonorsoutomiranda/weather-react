@@ -40,7 +40,7 @@ export default function WeatherData(props) {
     return (
       <div>
         <div className="card card-one">
-          <form onSubmit={HandleSearch}>
+          <form onSubmit={HandleSearch} className="form">
             <input
               type="text"
               placeholder=" Search Location"
