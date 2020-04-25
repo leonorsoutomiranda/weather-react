@@ -40,18 +40,20 @@ export default function WeatherData(props) {
     return (
       <div>
         <div className="row">
-          <form onSubmit={HandleSearch}>
-            <input
-              type="text"
-              placeholder=" Search Location"
-              autoFocus="on"
-              onChange={updateCity}
-            />{" "}
-            <span> </span>
-            <a className="search-btn" href="/" onClick={HandleSearch}>
-              <i className="fas fa-search-location" />
-            </a>
-          </form>
+          <div className="col">
+            <form onSubmit={HandleSearch}>
+              <input
+                type="text"
+                placeholder=" Search Location"
+                autoFocus="on"
+                onChange={updateCity}
+              />{" "}
+              <span> </span>
+              <a className="search-btn" href="/" onClick={HandleSearch}>
+                <i className="fas fa-search-location" />
+              </a>
+            </form>
+          </div>
         </div>
         <div className="card card-two">
           <div className="card-body card-body-two">
