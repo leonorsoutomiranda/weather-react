@@ -22,6 +22,7 @@ export default function Forecast(props) {
           <ForecastDisplay info={forecastdata.list[1]} />
           <ForecastDisplay info={forecastdata.list[2]} />
           <ForecastDisplay info={forecastdata.list[3]} />
+          <ForecastDisplay info={forecastdata.list[4]} />
         </div>
       </div>
     );

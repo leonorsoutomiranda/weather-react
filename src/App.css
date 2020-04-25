@@ -1,6 +1,3 @@
-h1 {
-  color: blue;
-}
 div.card {
   border-color: #37bcb3;
   border-style: solid;
@@ -30,6 +27,14 @@ p {
   text-align: left;
   padding: 0px 0px;
 }
+
+div.now {
+  color: #5a6275;
+  text-align: left;
+  padding: 0px 0px;
+  margin-left: 0px;
+}
+
 div.nextdays {
   color: #5a6275;
   text-align: left;
@@ -55,17 +60,14 @@ a {
 div.currentwindrain {
   color: #ffb851;
   font-size: 15px;
-  padding: 20px 0px;
+  padding: 60px 0px;
+  text-align: left;
 }
 
-.fas,
 .icon {
   color: #ffb851;
-  font-size: 60px;
-}
-.fa-cloud-showers-heavy {
-  color: #006ec5;
-  font-size: 50px;
+  font-size: 90px;
+  padding: 20px 0px;
 }
 
 button {
@@ -87,13 +89,14 @@ button:hover {
 .fa-search-location {
   font-size: 20px;
 }
-#description-weather {
-  text-transform: capitalize;
-}
+
 .App {
   margin: 20px;
 }
 div.row {
   margin-right: 0px;
   margin-left: 0px;
+}
+.col-sm {
+  padding-left: 0 px;
 }

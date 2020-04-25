@@ -39,11 +39,10 @@ export default function WeatherData(props) {
   if (ready) {
     return (
       <div>
-        <form onSubmit={HandleSearch} id="location-form">
+        <form onSubmit={HandleSearch}>
           <input
             type="text"
             placeholder=" Search Location"
-            id="location-input"
             autoFocus="on"
             onChange={updateCity}
           />{" "}
@@ -54,9 +53,7 @@ export default function WeatherData(props) {
         </form>
         <div className="card card-two">
           <div className="card-body card-body-two">
-            <div className="currentlocation" id="current-location">
-              {WeatherInfo.city}
-            </div>
+            <div className="currentlocation">{WeatherInfo.city}</div>
             <div className="currentdate">
               <CurrentDate date={WeatherInfo.date} />
             </div>
@@ -67,29 +64,28 @@ export default function WeatherData(props) {
                   unitSelected={"celsius"}
                   degreesCelsius={WeatherInfo.temperature}
                 />
+                <div className="col-"></div>
                 <WeatherIcon id={WeatherInfo.icon} />
-
+                <div className="col-"></div>
                 <div className="col-sm">
                   <div className="currentwindrain">
-                    | Humidity <span id="humidity">{WeatherInfo.humidity}</span>
+                    | Humidity <span>{WeatherInfo.humidity}</span>
                     %
-                    <br />| Wind <span id="wind">{WeatherInfo.wind}</span>km/h
+                    <br />| Wind <span>{WeatherInfo.wind}</span>km/h
                     <br />|
-                    <span id="description-weather" className="text-capitalize">
+                    <span className="text-capitalize">
                       {" "}
                       {WeatherInfo.description}
                     </span>
                   </div>
                 </div>
-                <div className="col-sm"></div>
-                <div className="col-sm"></div>
               </div>
-              <div className="row" id="forecast" />
+              <div className="row" />
               <Forecast city={WeatherInfo.city} />
             </div>
           </div>
           <div>
-            <button id="go-home">
+            <button>
               {" "}
               <a className="go-home" href="/">
                 Back to home location
