@@ -9,6 +9,11 @@ div.card-two {
   border-color: #5a6275;
   margin: 30px 1px;
 }
+div.card-one {
+  border-color: white;
+  margin: 5px -5px;
+}
+
 div.currentlocation {
   background-color: #eeeff1;
   color: #5b6375;
