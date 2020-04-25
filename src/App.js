@@ -6,7 +6,7 @@ import WeatherData from "./WeatherData.js";
 
 export default function App() {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="App">
         <div className="card">
           <div className="card-body">
